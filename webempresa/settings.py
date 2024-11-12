@@ -128,3 +128,57 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+CKEDITOR_CONFIGS = {
+    'default': {
+        'skin': 'moono-lisa',  # Cambia el tema de CKEditor
+        'toolbar_Basic': [
+            ['Bold', 'Italic']
+        ],
+        'toolbar_Full': [
+            {'name': 'document', 'items': ['Source', '-', 'Save', 'NewPage', 'Preview', 'Print', '-', 'Templates']},
+            {'name': 'clipboard', 'items': ['Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord', '-', 'Undo', 'Redo']},
+            {'name': 'editing', 'items': ['Find', 'Replace', '-', 'SelectAll', '-', 'Scayt']},
+            {'name': 'forms', 'items': ['Form', 'Checkbox', 'Radio', 'TextField', 'Textarea', 'Select', 'Button', 'ImageButton', 
+                                         'HiddenField']},
+            '/',
+            {'name': 'basicstyles', 'items': ['Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript', '-', 'RemoveFormat']},
+            {'name': 'paragraph', 'items': ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'Blockquote', 
+                                            'CreateDiv', '-', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock', '-', 
+                                            'BidiLtr', 'BidiRtl', 'Language']},
+            {'name': 'links', 'items': ['Link', 'Unlink', 'Anchor']},
+            {'name': 'insert', 'items': ['Image', 'Table', 'HorizontalRule', 'Smiley', 'SpecialChar', 'PageBreak', 'Iframe']},
+            '/',
+            {'name': 'styles', 'items': ['Styles', 'Format', 'Font', 'FontSize']},
+            {'name': 'colors', 'items': ['TextColor', 'BGColor']},
+            {'name': 'tools', 'items': ['Maximize', 'ShowBlocks']},
+            {'name': 'about', 'items': ['About']}
+        ],
+        'toolbar': 'Full',  # Usa la barra de herramientas completa configurada arriba
+        'height': 300,
+        'width': '100%',
+        'extraPlugins': ','.join([
+            'uploadimage',  # Permite cargar imágenes directamente
+            'div', 'autolink', 'autoembed', 'embedsemantic', 'autogrow', 'widget', 'lineutils',
+            'clipboard', 'dialog', 'dialogui', 'elementspath'
+        ]),
+        'removeButtons': 'Underline,Subscript,Superscript',  # Opcional para eliminar botones que no necesitas
+        'resize_enabled': True,
+        'autoGrow_minHeight': 200,
+        'autoGrow_maxHeight': 500,
+        'autoGrow_bottomSpace': 50,
+        'removePlugins': 'elementspath',  # Elimina la ruta de elementos del editor
+        'forcePasteAsPlainText': True,  # Forza a pegar solo texto sin formato
+    },
+    # Configuración para campos de texto más simples o con opciones reducidas
+    'basic': {
+        'toolbar': [
+            ['Bold', 'Italic', '-', 'Link', 'Unlink', '-', 'BulletedList', '-', 'RemoveFormat'],
+            ['Source']
+        ],
+        'height': 150,
+        'width': '100%',
+        'forcePasteAsPlainText': True,
+    }
+}
+

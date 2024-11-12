@@ -20,8 +20,33 @@ p {
   line-height: 1.75;
 }
 
+
+
 .text-faded {
   color: rgba(255, 255, 255, 0.3);
+}
+
+/* Estilos para el collage de imágenes */
+.collage .collage-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Para que las imágenes llenen su contenedor */
+}
+
+.collage .col-3 {
+  padding: 0; /* Elimina espacio entre imágenes */
+}
+
+/* Ajuste para el collage de imágenes */
+.page-section.collage {
+  padding: 10px 0; /* Espacio arriba y abajo del collage */
+  margin-top: 10px; /* Espacio superior para que no se monte sobre Cabecera */
+  background-color: #d48b2a;
+}
+
+
+.page-section.cabecera {
+  margin-bottom: 20px; /* Añade espacio entre Cabecera y el collage */
 }
 
 .site-heading {
