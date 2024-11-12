@@ -1,0 +1,27 @@
+{% extends 'core/base.html' %}
+
+{% load static %}
+
+{% block title %}Servicios{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+  <div class="row">
+    {% for service in services reversed %}
+      <div class="col-md-4 mb-4">
+        <div class="card h-100">
+          <!-- Imagen del servicio -->
+          <img src="{{ service.image.url }}" class="card-img-top" alt="Imagen de {{ service.title }}" style="height: 200px; object-fit: cover;">
+          
+          <!-- Contenido del servicio -->
+          <div class="card-body">
+            <h5 class="card-title">{{ service.title }}</h5>
+            <h6 class="text-muted">{{ service.subtitle }}</h6>
+            <p class="card-text">{{ service.content }}</p>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

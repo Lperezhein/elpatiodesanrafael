@@ -1,0 +1,88 @@
+{% extends 'core/base.html' %}
+
+{% load static %}
+
+{% block title %}Inicio{% endblock %}
+
+{% block content %}
+
+<!-- Carrusel de Servicios -->
+<section class="page-section">
+  <div class="container text-center">
+    <h2 class="text-center" style="background-color: white; padding: 10px; display: inline-block; margin: 0 auto;">Nuestros Menús</h2>
+
+    <div id="serviceCarousel" class="carousel slide mt-4" data-bs-ride="carousel">
+      <!-- Imágenes del carrusel -->
+      <div class="carousel-inner" style="max-width: 900px; margin: 0 auto;">
+        {% for service in services %}
+        <div class="carousel-item {% if forloop.first %}active{% endif %}">
+          <div class="row justify-content-center"> <!-- Añadido justify-content-center -->
+            <div class="col-lg-6 d-flex justify-content-center"> <!-- Asegura que la imagen esté centrada -->
+              <!-- Enlace que redirige a la página de menús -->
+              <a href="{% url 'services' %}">
+                <img src="{{ service.image.url }}" class="d-block" alt="{{ service.title }}" style="height: 300px; object-fit: cover; max-height: 300px;">
+                <div class="carousel-caption d-none d-md-block">
+                  <h5>{{ service.title }}</h5>
+                  <p>{{ service.subtitle }}</p>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+
+      <!-- Controles del carrusel -->
+      <button class="carousel-control-prev custom-control" type="button" data-bs-target="#serviceCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden" style="color: black;"><strong><</strong></span>
+      </button>
+      <button class="carousel-control-next custom-control" type="button" data-bs-target="#serviceCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden" style="color: black;"><strong>></strong></span>
+      </button>
+    </div>
+  </div>
+</section>
+
+
+
+
+<!-- Cabecera -->
+<section class="page-section clearfix">
+  <div class="container">
+    <div class="intro">
+      <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="{% static 'core/img/intro.jpg' %}" alt="">
+      <div class="intro-text left-0 text-center bg-faded p-5 rounded">
+        <h2 class="section-heading mb-4">
+          <span class="section-heading-upper">Déjate sorprender</span>
+          <span class="section-heading-lower">Te gustará</span>
+        </h2>
+        <p class="mb-3">¡Visítanos! En El Patio de San Rafael, cada día es una nueva oportunidad para sorprender y deleitar a nuestros clientes con la mejor comida casera en un ambiente único. Queremos que disfrutes de cada visita y que te sientas siempre bienvenido. Ya sea que vengas solo, en pareja o en familia, estamos seguros de que te encantará la experiencia que hemos creado para ti.
+          Si estás buscando un lugar donde la comida casera sea auténtica y llena de sabor, donde puedas sentirte como en casa y disfrutar de la tradición chilena en cada bocado, no dudes en visitarnos en San Rafael 335.
+        </p>
+        <div class="intro-button mx-auto">
+          <a class="btn btn-primary btn-xl" href="{% url 'store' %}">Visítanos</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Mensaje -->
+<section class="page-section cta">
+  <div class="container">
+    <div class="row">
+      <div class="col-xl-9 mx-auto">
+        <div class="cta-inner text-center rounded">
+          <h2 class="section-heading mb-4">
+            <span class="section-heading-upper">Compromiso total</span>
+            <span class="section-heading-lower">Garantizado</span>
+          </h2>
+          <p class="mb-0">San Rafael es un lugar especial, y en El Patio de San Rafael estamos orgullosos de formar parte de esta comunidad. Nos comprometemos a mantener vivas las tradiciones de nuestra tierra, trabajando con productores locales para ofrecer ingredientes frescos y apoyar a los pequeños agricultores de la región. Queremos que cada plato sirva como un puente entre nuestros visitantes y la rica cultura de nuestra región, promoviendo una conexión auténtica con lo que representa la comida chilena.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
