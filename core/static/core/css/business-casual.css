@@ -162,7 +162,7 @@ p {
   .intro .intro-text .intro-button {
     width: 100%;
     left: 0;
-    position: absolute;
+    position: none;
     bottom: -2rem;
   }
 }
@@ -324,4 +324,71 @@ ul.errorlist{
   padding-top: .75rem;
   font-style: italic;
   color: red;
+}
+/* Estilo para la sección collage */
+.collage {
+  margin-bottom: 50px; /* Espaciado debajo de esta sección */
+}
+
+/* Asegura que las imágenes en el collage no se sobrepongan */
+.collage .col-3 {
+  padding: 5px; /* Espaciado interno para evitar que las imágenes se toquen */
+}
+
+.collage-img {
+  max-width: 100%; /* Asegura que las imágenes se ajusten a su contenedor */
+  height: auto; /* Mantiene la proporción de las imágenes */
+  object-fit: cover; /* Hace que las imágenes llenen el contenedor sin distorsionarse */
+}
+
+/* Estilo para la cabecera */
+.cabecera {
+  margin-bottom: 50px; /* Espaciado para separar esta sección de la siguiente */
+}
+
+/* Asegura que las imágenes en la cabecera no se sobrepongan */
+.intro-img {
+  max-width: 100%; /* Ajusta las imágenes para que no se desborden */
+  height: auto;
+  border-radius: 8px;
+}
+
+/* Mensaje - CTA */
+.cta {
+  margin-bottom: 50px; /* Espaciado al final de esta sección */
+}
+
+/* Estilo general para secciones para evitar superposiciones */
+.page-section {
+  clear: both; /* Asegura que no haya flotantes que afecten el diseño */
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+/* Media Queries para pantallas grandes */
+
+/* Para pantallas grandes (notebooks, PCs) */
+@media (min-width: 992px) {
+  .collage .col-3 {
+    flex: 0 0 25%; /* Asegura que las columnas sean 25% en pantallas grandes */
+    max-width: 25%; /* Limita el tamaño máximo al 25% */
+  }
+
+  .cabecera .intro-img {
+    max-width: 100%; /* Asegura que las imágenes se ajusten adecuadamente */
+  }
+
+  /* Si las imágenes aún están sobrepasando el tamaño en pantallas grandes */
+  .collage .col-3 img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+/* Para pantallas extra grandes */
+@media (min-width: 1200px) {
+  .collage .col-3 {
+    flex: 0 0 25%; /* Mantiene el comportamiento en pantallas extra grandes */
+    max-width: 25%;
+  }
 }
